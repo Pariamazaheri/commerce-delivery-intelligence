@@ -1,0 +1,55 @@
+{
+  "train_rows": 75099,
+  "test_rows": 19363,
+  "purged_unobserved_labels": 2008,
+  "train_end": "2018-05-24 12:28:44",
+  "test_start": "2018-05-26 00:14:44",
+  "train_late_rate": 0.0710262453561299,
+  "test_late_rate": 0.034808655683520116,
+  "models": {
+    "prevalence_baseline": {
+      "roc_auc": 0.5,
+      "average_precision": 0.034808655683520116,
+      "brier_score": 0.03490872697471979
+    },
+    "logistic_all": {
+      "roc_auc": 0.7150025412050726,
+      "average_precision": 0.07571282455490078,
+      "brier_score": 0.03312139532818317
+    },
+    "logistic_mi12": {
+      "roc_auc": 0.6540551393074172,
+      "average_precision": 0.05744810868700967,
+      "brier_score": 0.033524606343413
+    }
+  },
+  "pca_components_90pct": 10,
+  "pca_explained_variance": [
+    0.22475325017227546,
+    0.1251388549292619,
+    0.11779626017954903,
+    0.09756416989513597,
+    0.07270669369588262,
+    0.06739507935218353,
+    0.06599870441262362,
+    0.061390082771842394,
+    0.05182705215330246,
+    0.04343571619280117
+  ],
+  "selected_features": [
+    "num__month_cos",
+    "num__month_sin",
+    "num__freight",
+    "num__interstate_share",
+    "cat__customer_state_RJ",
+    "cat__customer_state_SP",
+    "num__log_value",
+    "num__item_value",
+    "num__freight_ratio",
+    "num__promised_days",
+    "num__value_per_item",
+    "cat__customer_state_CE"
+  ],
+  "encoded_feature_count": 46,
+  "seed": 42
+}

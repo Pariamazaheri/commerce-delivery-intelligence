@@ -1,0 +1,140 @@
+{
+  "source": "https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce",
+  "tables": {
+    "orders": {
+      "rows": 99441,
+      "exact_duplicates": 0,
+      "missing": {
+        "order_id": 0,
+        "customer_id": 0,
+        "order_status": 0,
+        "order_purchase_timestamp": 0,
+        "order_approved_at": 160,
+        "order_delivered_carrier_date": 1783,
+        "order_delivered_customer_date": 2965,
+        "order_estimated_delivery_date": 0
+      },
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    "items": {
+      "rows": 112650,
+      "exact_duplicates": 0,
+      "missing": {
+        "order_id": 0,
+        "order_item_id": 0,
+        "product_id": 0,
+        "seller_id": 0,
+        "shipping_limit_date": 0,
+        "price": 0,
+        "freight_value": 0
+      },
+      "sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279"
+    },
+    "customers": {
+      "rows": 99441,
+      "exact_duplicates": 0,
+      "missing": {
+        "customer_id": 0,
+        "customer_unique_id": 0,
+        "customer_zip_code_prefix": 0,
+        "customer_city": 0,
+        "customer_state": 0
+      },
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    "sellers": {
+      "rows": 3095,
+      "exact_duplicates": 0,
+      "missing": {
+        "seller_id": 0,
+        "seller_zip_code_prefix": 0,
+        "seller_city": 0,
+        "seller_state": 0
+      },
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    "products": {
+      "rows": 32951,
+      "exact_duplicates": 0,
+      "missing": {
+        "product_id": 0,
+        "product_category_name": 610,
+        "product_name_lenght": 610,
+        "product_description_lenght": 610,
+        "product_photos_qty": 610,
+        "product_weight_g": 2,
+        "product_length_cm": 2,
+        "product_height_cm": 2,
+        "product_width_cm": 2
+      },
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    "reviews": {
+      "rows": 99224,
+      "exact_duplicates": 0,
+      "missing": {
+        "review_id": 0,
+        "order_id": 0,
+        "review_score": 0,
+        "review_comment_title": 87656,
+        "review_comment_message": 58247,
+        "review_creation_date": 0,
+        "review_answer_timestamp": 0
+      },
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    }
+  },
+  "numeric_parse_failures": {
+    "price": 0,
+    "freight_value": 0,
+    "product_weight_g": 0
+  },
+  "invalid_price_items": 0,
+  "extra_review_rows": 551,
+  "invalid_review_scores": 0,
+  "status_counts": {
+    "delivered": 96478,
+    "shipped": 1107,
+    "canceled": 625,
+    "unavailable": 609,
+    "invoiced": 314,
+    "processing": 301,
+    "created": 5,
+    "approved": 2
+  },
+  "excluded_from_delivered_cohort": 2971,
+  "cohort_rows": 96470,
+  "cohort_missing": {
+    "order_id": 0,
+    "customer_id": 0,
+    "order_status": 0,
+    "order_purchase_timestamp": 0,
+    "order_approved_at": 14,
+    "order_delivered_carrier_date": 1,
+    "order_delivered_customer_date": 0,
+    "order_estimated_delivery_date": 0,
+    "customer_state": 0,
+    "item_count": 0,
+    "seller_count": 0,
+    "interstate_share": 0,
+    "item_value": 0,
+    "freight": 0,
+    "weight_g": 22,
+    "amount_incomplete": 0,
+    "review_score": 646,
+    "delivery_days": 0,
+    "promised_days": 0,
+    "delay_days": 0,
+    "late": 0,
+    "bad_review": 646,
+    "freight_ratio": 0,
+    "log_value": 0,
+    "value_per_item": 0,
+    "purchase_hour": 0,
+    "weekday": 0,
+    "month_sin": 0,
+    "month_cos": 0,
+    "weekend": 0,
+    "value_band": 0
+  }
+}
