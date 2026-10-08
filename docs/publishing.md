@@ -4,26 +4,23 @@ Canonical repository: https://github.com/Pariamazaheri/commerce-delivery-intelli
 
 ## GitHub
 
-Create a public repository named `commerce-delivery-intelligence` in your account,
-without auto-generating a README. From this project's directory:
+Published publicly on 8 October 2026. To work with the repository:
 
 ```bash
-git add .
-git commit -m "Build reproducible delivery reliability analytics"
-git remote add origin https://github.com/Pariamazaheri/commerce-delivery-intelligence.git
-git push -u origin main
+git clone https://github.com/Pariamazaheri/commerce-delivery-intelligence.git
+cd commerce-delivery-intelligence
 ```
 
 Commit identity and account authentication come from your Git configuration. The data,
 virtual environment, secrets and caches are ignored. The executed notebook,
 figures, measured reports, tests and 50-car Excel snapshot are included.
 
-Suggested GitHub description:
+GitHub description:
 
 > Order-level delivery reliability analytics with temporal evaluation, mutual
 > information, PCA, uncertainty estimates and an interactive route explorer.
 
-Suggested topics: `data-science`, `ecommerce`, `exploratory-data-analysis`,
+Topics: `data-science`, `ecommerce`, `exploratory-data-analysis`,
 `feature-engineering`, `scikit-learn`, `plotly`, `pca`.
 
 Pin the repository on your profile. Lead recruiter conversations with the business
@@ -33,7 +30,7 @@ business savings or causal impact that were not measured.
 
 ## Colab
 
-Once published, use Colab's **Open notebook > GitHub** dialog and select the
+Use Colab's **Open notebook > GitHub** dialog and select the
 notebook from your repository. Before its first analytical cell, add and run:
 
 ```python

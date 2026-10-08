@@ -31,9 +31,10 @@ The main risk benchmark has later-period ROC AUC 0.7150, average precision 0.075
 and Brier score 0.0331. MI selection's lower average precision remains documented.
 Predictions and transformed outcomes do not feed training-time feature selection.
 
-CI covers Python 3.11 and 3.14 and checks committed artifact consistency. Local
-runtime evidence uses Python 3.14; hosted CI status is visible in GitHub Actions
-after publication. This project deploys an analytical repository, not a live
+Hosted CI passed on Python 3.11 and 3.14 on 8 October 2026, including installation,
+20 regression tests, Ruff lint/format checks and committed artifact consistency.
+The verified run is [available in GitHub Actions](https://github.com/Pariamazaheri/commerce-delivery-intelligence/actions/runs/37774217000).
+Local runtime evidence uses Python 3.14. This project deploys an analytical repository, not a live
 prediction service. The Colab guide supports reproducing the analysis from GitHub.
 
 ## Independent audit
