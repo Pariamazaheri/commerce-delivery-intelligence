@@ -13,7 +13,7 @@ cd commerce-delivery-intelligence
 
 Commit identity and account authentication come from your Git configuration. The data,
 virtual environment, secrets and caches are ignored. The executed notebook,
-figures, measured reports, tests and 50-car Excel snapshot are included.
+figures, measured reports and tests are included.
 
 GitHub description:
 

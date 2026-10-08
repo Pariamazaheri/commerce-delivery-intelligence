@@ -1,6 +1,5 @@
 """Small adversarial fixtures verify grain, exclusions and leakage boundaries."""
 
-import json
 import zipfile
 
 import numpy as np
@@ -10,7 +9,6 @@ import pytest
 from commerce_intelligence.analysis import wilson_interval
 from commerce_intelligence.data import TABLES, build_orders, extract_archive
 from commerce_intelligence.modeling import FEATURES, chronological_split
-from commerce_intelligence.scraping import parse_detail, parse_listing
 
 
 def test_order_grain_calendar_boundary_and_missing_amounts(raw):
@@ -89,59 +87,3 @@ def test_archive_rejects_unexpected_payload(tmp_path):
     with pytest.raises(ValueError, match="missing required"):
         extract_archive(path, tmp_path)
     assert not (tmp_path.parent / "escape.csv").exists()
-
-
-def test_listing_links_are_deduplicated():
-    link = "/car/detail-abc-samand-lx-1390"
-    html = f'<a href="{link}">car</a><a href="{link}">same</a>'
-    assert parse_listing(html) == [link]
-
-
-def test_scraper_fails_closed_on_schema_change():
-    html = '<script id="__NUXT_DATA__">' + json.dumps([{}]) + "</script>"
-    with pytest.raises(ValueError, match="schema changed"):
-        parse_detail(html, "https://bama.ir/car/detail-example")
-
-
-def vehicle_payload(year, price):
-    """Construct an explicitly synthetic reference pool for boundary tests."""
-    pool = []
-
-    def encode(value):
-        encoded = (
-            {key: encode(item) for key, item in value.items()}
-            if isinstance(value, dict)
-            else value
-        )
-        pool.append(encoded)
-        return len(pool) - 1
-
-    encode(
-        {
-            "vehicle": {
-                "brand": {"value": "samand"},
-                "year": {"value": year},
-                "mileage": {"value": 0},
-                "color": {"body": {"value": "سفید"}},
-                "transmission": {"value": "دنده ای"},
-            },
-            "content": {"description": "Synthetic vehicle observation"},
-            "price": {"type": "lumpsum", "fixed": {"value": price}},
-        }
-    )
-    return '<script id="__NUXT_DATA__">' + json.dumps(pool) + "</script>"
-
-
-def test_scraper_year_1385_is_excluded():
-    with pytest.raises(ValueError, match="strictly after"):
-        parse_detail(vehicle_payload(1385, 100), "https://bama.ir/car/detail-fixture")
-
-
-def test_scraper_missing_price_and_zero_mileage_are_distinct():
-    row = parse_detail(
-        vehicle_payload(1386, None), "https://bama.ir/car/detail-fixture"
-    )
-    assert row["price_toman"] is None
-    assert row["mileage_km"] == 0
-    assert row["production_year_sh"] == 1386
-    assert row["transmission"] == "manual"

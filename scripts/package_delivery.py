@@ -16,10 +16,7 @@ interactive = "reports/interactive/route_explorer.html"
 if (ROOT / interactive).exists():
     files.append(interactive)
 files = sorted(set(files))
-if any(
-    ".venv/" in name or name.startswith("data/raw/") and not name.endswith(".gitkeep")
-    for name in files
-):
+if any(".venv/" in name or name.startswith("data/raw/") for name in files):
     raise ValueError("Unexpected environment/raw data in upload bundle")
 manifest = {
     name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in files

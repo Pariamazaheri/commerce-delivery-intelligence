@@ -14,7 +14,3 @@ cleaning, aggregating source tables, deriving features and statistical outputs,
 and creating plots. No affiliation with or endorsement by Olist is implied.
 Raw Olist files are not committed. MIT applies only to original code and does not
 replace dataset or third-party content terms.
-
-The independent Bama snapshot is attributed to https://bama.ir/car/samand and the
-source URL on each row. Bama and listing authors retain their content rights.
-This demonstration makes no blanket third-party licensing grant.

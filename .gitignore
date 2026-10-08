@@ -10,9 +10,7 @@ __pycache__/
 *credentials*
 kaggle.json
 data/raw/*
-!data/raw/.gitkeep
 data/processed/*
-!data/processed/.gitkeep
 reports/interactive/*.html
 dist/
 build/

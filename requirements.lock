@@ -2,7 +2,6 @@
 appnope==1.0.0
 asttokens==3.0.2
 attrs==26.1.0
-beautifulsoup4==4.15.0
 certifi==2026.7.22
 charset-normalizer==3.5.2
 cloudpickle==3.1.2
@@ -10,7 +9,6 @@ comm==0.2.3
 contourpy==1.4.0
 cycler==0.12.1
 debugpy==1.8.22
-et_xmlfile==2.0.0
 executing==2.2.1
 fastjsonschema==2.22.2
 fonttools==4.66.1
@@ -33,7 +31,6 @@ nbclient==0.11.0
 nbformat==5.11.1
 nest-asyncio2==1.7.3
 numpy==2.5.3
-openpyxl==3.1.5
 packaging==26.3
 pandas==3.0.6
 parso==0.8.7
@@ -59,7 +56,6 @@ scikit-learn==1.9.1
 scipy==1.18.1
 seaborn==0.13.2
 six==1.17.0
-soupsieve==2.10
 stack-data==0.6.3
 threadpoolctl==3.7.0
 tornado==6.5.10

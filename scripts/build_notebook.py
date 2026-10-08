@@ -50,7 +50,7 @@ from commerce_intelligence.cli import run_project
 from commerce_intelligence.modeling import FEATURES, NUMERIC, chronological_split
 
 # Download separately with `commerce-insights download` if raw files are absent.
-# This analytical run is offline and does not scrape live listings.
+# The analytical run uses locally acquired source data.
 result = run_project(ROOT)
 orders = result["orders"]
 audit = result["audit"]
@@ -62,10 +62,7 @@ markdown("""
 
 Olist provides real multi-table ecommerce transactions with operational dates,
 amounts and customer ratings. This supports routing economics and reliability
-analysis more directly than a flat synthetic sales table. No Iranian Kaggle
-dataset was selected: the core question benefits from Olist's documented event
-sequence and relational structure. The independent Samand extension adds a
-local market acquisition example without mixing unrelated data into the model.
+analysis through a documented event sequence and relational structure.
 
 We remove exact duplicate rows and fail on conflicting entity/item primary keys.
 Missing or invalid dates are parsed to missing values. Nonpositive item prices,
@@ -255,23 +252,7 @@ for component in model["loadings"].columns[:2]:
     display(model["loadings"][component].abs().nlargest(5))
 """)
 markdown("""
-## 7. When is feature engineering optional, and when is it essential?
-
-Feature engineering is a nice-to-have when the source already expresses the
-decision in useful variables, such as a tidy table of validated numerical
-measurements, or a representation-learning model has sufficient data to learn
-those patterns. Extra handcrafted inputs still need out-of-time validation.
-
-It is essential when the raw representation cannot express the business unit or
-mechanism. Here an order may have several item rows and sellers: order-level
-counts and totals are necessary to avoid double counting. Freight/value exposes
-shipping burden that two separate currency columns obscure. Cyclical month
-encoding expresses calendar adjacency. Transformations also become essential
-for scale-sensitive methods such as PCA. Feature timing is as important as feature
-construction: a highly predictive review or delivery timestamp would invalidate
-a purchase-time model.
-
-## 8. Operational recommendations and next steps
+## 7. Operational recommendations and next steps
 
 Prioritize high-volume destinations with elevated late rates for route and
 promise audits, then pilot communication or capacity changes with randomized
@@ -280,12 +261,6 @@ calibration and intervention cost. Use rolling temporal validation and carrier
 information before choosing a deployment model. No cost savings or causal lift
 are claimed from this observational dataset.
 
-The optional Samand acquisition module is independent of this ecommerce analysis.
-It collects 50 unique public cars manufactured strictly after Solar Hijri 1385,
-records price/mileage/color/year/transmission/description, and retains source URLs
-and acquisition timestamps. Negotiable and installment-only prices remain missing.
-The snapshot is a convenience sample, not a representative Iranian price index.
-See `docs/market_snapshot.md` for execution and coverage.
 """)
 
 notebook = nbf.v4.new_notebook(cells=cells)

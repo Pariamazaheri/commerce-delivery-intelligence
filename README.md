@@ -60,7 +60,7 @@ PNG charts for GitHub readers and a Plotly explorer for interactive use.
    fixed logistic benchmarks with ROC AUC, average precision, Brier score and
    calibration diagnostics.
 7. **Interpret:** retain PCA components explaining at least 90% of numeric training
-   variance, inspect loadings, and discuss when feature engineering is essential.
+   variance and inspect the contribution of basket, routing, and calendar features.
 
 The risk benchmark assumes that seller assignment, item attributes and the shipping
 quote are known at checkout. IDs, reviews, actual delivery dates and delay duration
@@ -108,28 +108,11 @@ commerce-delivery-intelligence/
 ├── notebooks/                  # Executed end-to-end narrative
 ├── src/commerce_intelligence/   # Data, statistics, modeling, visualization, CLI
 ├── reports/                    # Measured insights, metrics, figures, tables
-│   └── market_snapshot/         # Independent 50-car Samand snapshot and Excel
 ├── docs/                       # Feature definitions, scope, publishing guide
 ├── scripts/                    # Notebook construction and execution
 ├── tests/                      # Adversarial grain, date and leakage checks
 └── .github/workflows/           # Automated lint, tests and notebook validation
 ```
-
-## Optional Iranian market acquisition
-
-A separate bounded scraper collects 50 public **Samand** cars manufactured
-strictly after Solar Hijri 1385 from Bama. The included snapshot contains price,
-mileage, color, year, transmission and description, plus source URLs and collection
-timestamps. Five prices are unavailable; they stay blank rather than becoming zero.
-
-```bash
-python -m commerce_intelligence.scraping --target 50 --xlsx
-```
-
-See [market snapshot notes](docs/market_snapshot.md). This extension checks robots
-rules, requests pages sequentially, validates fields and reports incomplete
-collection instead of inventing records. Model-filter sampling is not representative
-of the entire Iranian used-car market.
 
 ## Quality and reproducibility
 
@@ -141,9 +124,8 @@ python scripts/validate_results.py
 ```
 
 Tests cover duplicate keys, item aggregation, same-day delivery, invalid amounts,
-mixed date formats, future-label exclusion, feature leakage, archive safety and
-scraper schema failure. CI runs offline checks on Python 3.11 and 3.14 and verifies
-that committed notebook outputs, report totals and Excel records are consistent. Full notebook
+mixed date formats, future-label exclusion, feature leakage and archive safety. CI runs offline checks on Python 3.11 and 3.14 and verifies
+that committed notebook outputs and report totals are consistent. Full notebook
 execution is an explicit integration check because raw data is not stored in Git.
 See [validation evidence](reports/validation.md).
 
@@ -158,8 +140,7 @@ rolling validation, calibrated thresholds and verified feature availability.
 Original Python code is MIT licensed. Olist's dataset is **CC BY-NC-SA 4.0**, as
 listed in Kaggle's public metadata; data-derived reports and visualizations are
 provided under that license. The MIT license does not grant commercial rights to
-Olist data or its derivatives. Bama listing content remains third-party content.
+Olist data or its derivatives.
 See [NOTICE](NOTICE.md) for attribution and scope.
 
 For GitHub publishing and Colab setup, follow the [publishing guide](docs/publishing.md).
-Suggested repository name: **`commerce-delivery-intelligence`**.

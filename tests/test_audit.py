@@ -1,7 +1,5 @@
 """Regression checks for malformed inputs and train-only feature transforms."""
 
-import json
-
 import numpy as np
 import pandas as pd
 import pytest
@@ -9,7 +7,6 @@ import pytest
 from commerce_intelligence.analysis import wilson_interval
 from commerce_intelligence.data import TABLES, build_orders
 from commerce_intelligence.modeling import DISCRETE, NUMERIC, benchmark
-from commerce_intelligence.scraping import parse_detail
 
 
 def test_missing_source_columns_have_actionable_error(raw):
@@ -42,13 +39,6 @@ def test_fractional_review_score_is_unavailable(raw):
 def test_invalid_uncertainty_denominators_fail(successes, count):
     with pytest.raises(ValueError, match="positive count"):
         wilson_interval(successes, count)
-
-
-def test_invalid_scraper_reference_reports_schema_error():
-    pool = [{"vehicle": 999, "content": -1, "price": -1}]
-    html = '<script id="__NUXT_DATA__">' + json.dumps(pool) + "</script>"
-    with pytest.raises(ValueError, match="Invalid payload reference"):
-        parse_detail(html, "https://bama.ir/car/detail-synthetic")
 
 
 def test_heldout_feature_changes_do_not_refit_training_transforms():
